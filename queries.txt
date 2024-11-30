@@ -1,0 +1,110 @@
+CRAETE TABLE Employee(
+    EmployeeID INT AUTO_INCREMENT PRIMARY KEY;
+    FirstName VARCHAR(50);
+    LastName VARCHAR(50);
+    Email VARCHAR(100);
+    HireDate DATE
+);
+
+INSERT INTO Employee(FirstName,LastName,Email,HireDate)
+VALUES
+("Ram","Laxman","ram.laxman@gmail.com",'2024-10-18'),
+("jack", "a","jack.a@gmail.com",'2024-7-15'),
+("joo", "m", "joo.m@gmail.com",'2024-06-28'),
+("ghan","l","ghan.l@gmail.com",'2024-05-11');
+
+
+select * from Employee;
+
+UPDATE Employee SET Email = "Ram.sita@gmail.com" WHERE EmployeeID = 1;
+
+select * from Employee;
+
+UPDATE Employee SET Email = "Ram.sita1@gmail.com" WHERE FirstName = 'Ram';
+
+
+select * from Employee;
+
+ALTER TABLE Employee ADD COLUMN Department VARCHAR(50);
+
+select * from Employee;
+
+INSERT INTO Employee (FirstName, LastName , Email, HireDate, Department)
+
+VALUES 
+("Ram","Laxman","ram.laxman@gmail.com",'2024-10-18', "Power"),
+("jack", "a","jack.a@gmail.com",'2024-7-15', "AI"),
+("joo", "m", "joo.m@gmail.com",'2024-06-28',"Services"),
+("ghan","l","ghan.l@gmail.com",'2024-05-11',"Platform");
+
+select * from Employee;
+
+CREATE TABLE Students(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    First_Name VARCHAR(50),
+    Last_Name VARCHAR(50),
+    age INT,
+    grade VARCHAR(10),
+    City VARCHAR(50),
+)
+
+INSERT INTO Students(First_Name,Last_Name, age, grade, City)
+
+VALUES
+
+("John","Doe", 20, 1,"A","New York"),
+
+("Jane", "Smith", 22, "B", "Los Angles"),
+
+("James","Johnson", 21, "A","Chicago"),
+
+("Mary", "Williamson", 23, "C", "San Feansico"),
+
+("John", "Devis", 20, "B","Miami"),
+
+("Linda", "Miller", 24, "A", "New York");
+
+select * from Students;
+
+select * from Students WHERE age > 23;
+
+select * from Students WHERE First_Name = "John";
+
+select First_Name,Last_Name from Students;
+
+select * from Students order by age DESC;
+
+select * from Students order by id ASC;
+
+select * from Students LIMIT 3;
+
+select * from Students LIMIT 3 OFFSET 2;
+
+select DISTINCT First_Name,Last_Name,age,grade,City
+from Students
+
+WHERE age > 20
+
+order by grade DESC
+LIMIT 3 OFFSET 1;
+
+
+select grade, count(*), as number_of_students from Students group by grade;
+
+select AVG(AGE) as AVERAGE_AGE from Students;
+
+select MIN(AGE) as MIN_AGE, MAX(AGE) as MAX_AGE from Students;
+
+select count(*) as TOTAL_NUMBER_OF_STUDENTS from Students;
+
+select * from Students WHERE age > 20 and grade = "A";
+
+select * from Students WHERE age > 20 or grade = "A";
+
+select * from Students WHERE grade IN ("A", "B");
+
+select * from Students WHERE age between 20 adn 22;
+
+select * from Students First_Name like 'M%';
+
+select * from Students Last_Name like '%s';
